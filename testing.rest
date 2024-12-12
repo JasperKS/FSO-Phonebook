@@ -4,21 +4,29 @@ GET http://localhost:3001/api/persons
 GET http://localhost:3001/info 
 
 ###
-GET http://localhost:3001/api/persons/4
+GET http://localhost:3001/api/persons/6881
 
 ###
-GET http://localhost:3001/api/persons/10
-
-###
-DELETE http://localhost:3001/api/persons/4
-
-###
-POST http://localhost:3001/api/persons/ HTTP/1.1
+POST http://localhost:3001/api/persons/
 content-type: application/json
 
 { 
-    "id": "4",
     "name": "Mary Poppendieck", 
     "number": "39-23-6423122"
 }
+
+###
+POST http://localhost:3001/api/persons/
+content-type: application/json
+
+{ 
+    "name": "Shawn Spencers", 
+    "number": "39-23-6423122"
+}
+
+###
+GET http://localhost:3001/api/persons/2953
+
+###
+DELETE http://localhost:3001/api/persons/2953
 
