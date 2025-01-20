@@ -33,8 +33,11 @@ let data = [
     }
 ]
 
+app.use(express.static('dist'))
+
 
 app.get('/api/persons', (request, response) => {
+    response.send(data);
 })
 
 app.get('/info', (request, response) => {
