@@ -76,7 +76,7 @@ app.post('/api/persons', (request, response) => {
 
     if (data.some(person => person.name == body.name)) {
         return response.status(400).json({
-            error: 'name must be unique'
+            error: 'name must be uniques'
         })
     }
 
