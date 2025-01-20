@@ -1,8 +1,7 @@
 const express = require('express')
 const app = express()
-const morgan = require('morgan')
 
-app.use(express.json())
+const morgan = require('morgan')
 
 morgan.token('body', function getBody (req) {
     return JSON.stringify(req.body);
@@ -34,6 +33,21 @@ let data = [
 ]
 
 app.use(express.static('dist'))
+
+const requestLogger = (request, response, next) => {
+    console.log('Method:', request.method)
+    console.log('Path:  ', request.path)
+    console.log('Body:  ', request.body)
+    console.log('---')
+    next()
+}
+
+const cors = require('cors')
+
+app.use(cors())
+
+app.use(express.json())
+app.use(requestLogger)
 
 
 app.get('/api/persons', (request, response) => {
