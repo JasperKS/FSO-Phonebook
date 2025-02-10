@@ -20,8 +20,8 @@ POST http://localhost:3001/api/persons/
 content-type: application/json
 
 { 
-    "name": "Shawn Spencer1234ss", 
-    "number": "39-23-6423122"
+    "name": "Claw Man", 
+    "number": "111-222-3333"
 }
 
 ###

@@ -92,7 +92,7 @@ app.delete('/api/persons/:id', (request, response) => {
 })
 
 app.post('/api/persons', (request, response) => {
-    const new_id = Math.floor(Math.random() * 10000)
+    //const new_id = Math.floor(Math.random() * 10000)
     const body = request.body;
 
     if (!body.name && !body.number) {
@@ -107,15 +107,16 @@ app.post('/api/persons', (request, response) => {
         })
     }
 
-    const person = {
-        id: new_id,
+    const person = new Person ({
+        //id: new_id,
         name: body.name,
         number: body.number,   
-    }
+    })
 
-    data = data.concat(person)
-    response.json(person)
-
+    person.save().then(result => {
+        console.log(`added ${result.name} number ${result.number} to phonebook`)
+        response.json(person)
+    })
 })
 
 const PORT = 3001
