@@ -16,7 +16,7 @@ export default [
       ecmaVersion: "latest",
     },
     plugins: {
-      '@stylistic/js', stylisticJS
+      '@stylistic/js': stylisticJS
     },
     rules: {
       '@stylistic/js/indent': [
