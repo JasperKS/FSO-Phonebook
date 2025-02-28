@@ -85,8 +85,8 @@ app.post('/api/persons', (request, response, next) => {
 
     person.save()
         .then(result => {
-        console.log(`added ${result.name} number ${result.number} to phonebook`)
-        response.json(person)
+            console.log(`added ${result.name} number ${result.number} to phonebook`)
+            response.json(person)
         })
         .catch(error => next(error))
 })
@@ -111,9 +111,9 @@ app.put('/api/persons/:id', (request, response, next) => {
 })
 
 app.delete('/api/persons/:id', (request, response) => {
-    const id = request.params.id;
-    Person.findByIdAndDelete(id)
-        .then(result => {
+  const id = request.params.id;
+  Person.findByIdAndDelete(id)
+    .then(result => {
             response.status(204).end();
         })
         .catch(error => next(error))
