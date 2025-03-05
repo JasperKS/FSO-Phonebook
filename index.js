@@ -11,8 +11,6 @@ morgan.token('body', function getBody (req) {
 })
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
 
-let data = []
-
 app.use(express.static('dist'))
 
 const requestLogger = (request, response, next) => {
@@ -67,12 +65,6 @@ app.post('/api/persons', (request, response, next) => {
   if (!body.name && !body.number) {
     return response.status(400).json({
       error: 'name or number is missing'
-    })
-  }
-
-  if (data.some(person => person.name === body.name)) {
-    return response.status(400).json({
-      error: 'name must be uniques'
     })
   }
 
