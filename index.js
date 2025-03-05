@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 require('dotenv').config()
 
-const Person = require('./models/phonebook')
+const Person = require('./models/person')
 
 const morgan = require('morgan')
 
